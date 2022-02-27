@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <link rel="stylesheet" media="screen" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" media="screen" th:href="@{/css/main.css}"/>
+</head>
+
+<body class="d-flex flex-column h-100">
+
+<div th:replace="fragments/header :: header">
+</div>
+
+
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+    <div class="container">
+        <h1 class="mt-5">Singleton scope</h1>
+        <p th:text="'The Service bean id is ' + ${serviceid} + ''" />
+        <p th:text="'The Component bean id is ' + ${componentid} + ''" />
+        <p class="lead">For every request, it will show the same bean id</p>
+    </div>
+</main>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+
+</body>
+
+
+</html>

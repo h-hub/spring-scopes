@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <link rel="stylesheet" media="screen" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" media="screen" th:href="@{/css/main.css}"/>
+</head>
+
+<body class="d-flex flex-column h-100">
+
+<div th:replace="fragments/header :: header">
+</div>
+
+
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+    <div class="container">
+        <h1 class="mt-5">Session scope</h1>
+        <p class="lead">Shopping cart example</p>
+        <p th:text="'The Component bean id is ' + ${id} + ''" />
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col">PRICE</th>
+                        <th scope="col">STOCK</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item: ${items}">
+                        <td th:text="${item.id}" />
+                        <td th:text="${item.name}" />
+                        <td th:text="${item.price}" />
+                        <td th:text="${item.stock}" />
+                        <td><a type="button" class="btn btn-primary" th:href="@{/secure/session/{type}(type=${item.id})}">Add to cart</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col">
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col">PRICE</th>
+                        <th scope="col">QUANTITY</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item: ${cartItems}">
+                        <td th:text="${item.key.id}" />
+                        <td th:text="${item.key.name}" />
+                        <td th:text="${item.key.price}" />
+                        <td th:text="${item.value}" />
+                        <td><a type="button" class="btn btn-danger btn-sm" th:href="@{/secure/session/remove/{type}(type=${item.key.id})}">Remove
+                        </a></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div th:if="${errMessage!=''}" th:text="${errMessage}" class="alert alert-danger" role="alert"/>
+            </div>
+        </div>
+
+
+    </div>
+</main>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+
+</body>
+
+
+</html>

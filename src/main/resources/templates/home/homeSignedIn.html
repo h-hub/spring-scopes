@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <link rel="stylesheet" media="screen" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" media="screen" th:href="@{/css/main.css}"/>
+</head>
+
+<body class="d-flex flex-column h-100">
+
+<div th:replace="fragments/header :: header">
+</div>
+
+
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+    <div class="container">
+        <h1 class="mt-5">How do Spring scopes work?</h1>
+        <p class="lead">Sample codes for the blog post</p>
+        <p>Back to <a href="https://www.harshajayamanna.com/">harsha.codes</a></p>
+    </div>
+</main>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <link rel="stylesheet" media="screen" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" media="screen" th:href="@{/css/main.css}"/>
+</head>
+
+<body class="d-flex flex-column h-100">
+
+<div th:replace="fragments/header :: header">
+</div>
+
+
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+    <div class="container">
+        <h1 class="mt-5">Request scope</h1>
+        <p th:text="'The bean id is ' + ${id} + ''" />
+        <p th:text="'The username is ' + ${username} + ''" />
+        <p class="lead">The username is extracted from the request using the request scoped bean</p>
+    </div>
+</main>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+
+</body>
+
+
+</html>
